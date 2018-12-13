@@ -23,7 +23,7 @@
     </div>
 </div>
 <div class="js-modal modal-overlay {{modifier}}" data-modal="baz">
-    <div class="modal-wrapper" aria-labelledby="modal" role="dialog">
+    <div class="modal-wrapper modal-mobile-sheet" aria-labelledby="modal" role="dialog">
         <div class="column-12 center-column">
             <div class="modal-header">
                 <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
@@ -52,5 +52,57 @@
         </div>
     </div>
 </div>
+
+<div class="js-modal modal-overlay {{modifier}}" data-modal="bar">
+    <div class="modal-wrapper modal-mobile-sheet modal-mobile-sheet-destructive" aria-labelledby="modal" role="dialog">
+        <div class="column-12 center-column">
+            <div class="modal-header">
+                <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
+                    <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'><path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
+                    </a>
+                <h3 class="trailer-0">Another Modal with a potentially really long two-line title!</h3>
+            </div>
+            <div class="modal-content">
+
+                    <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="modal-footer text-right">
+                <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
+                <button class="btn js-modal-toggle">Okay</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="js-modal modal-overlay {{modifier}}" data-modal="bif">
+    <div class="modal-wrapper modal-mobile-takeover column-12 center-column" aria-labelledby="modal" role="dialog">
+
+            <div class="modal-header">
+                <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
+                    <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'><path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
+                    </a>
+                <h3 class="trailer-0">Another Modal with a potentially really long two-line title!</h3>
+            </div>
+            <div class="modal-content">
+
+                    <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="modal-footer text-right">
+                <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
+                <button class="btn js-modal-toggle">Okay</button>
+            </div>
+    </div>
+</div>
 <a class="js-modal-toggle btn" href="#" data-modal="foo"><span>Show Modal</span></a>
-<a class="js-modal-toggle btn" href="#" data-modal="baz">Show Another Modal</a>
+<a class="js-modal-toggle btn" href="#" data-modal="baz">Show Sheet Modal - Information</a>
+<a class="js-modal-toggle btn" href="#" data-modal="bar">Show Sheet Modal - Destructive</a>
+<a class="js-modal-toggle btn" href="#" data-modal="bif">Show Page Takeover Modal</a>

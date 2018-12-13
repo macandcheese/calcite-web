@@ -23,41 +23,43 @@
   background: $transparent-black;
   @include transition(visibility 0ms linear 300ms, opacity 300ms $easing-function);
   z-index: 101;
+
   &.is-active {
     visibility: visible;
     opacity: 1;
     @include transition-delay(0ms);
+
     & .modal-wrapper {
       visibility: visible;
       opacity: 1;
       @include transition-delay(0ms);
-      @include transform(translate3d(0,0,0))
+      @include transform(translate3d(0, 0, 0))
     }
   }
 }
 
 @mixin modal-header() {
-  background-color: rgba($white,0.96);
+  background-color: $white;
   padding: $baseline $baseline*2.5 $baseline $baseline;
   border-bottom: 1px solid $lightest-gray;
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       padding: $baseline $baseline 0 $baseline*2.5;
     }
   }
-  @media screen and (max-width: $medium) {
-    border-radius:4px 4px 0 0;
-  }
+
 }
 
 @mixin modal-footer() {
   background-color: $white;
   padding: $baseline/1.25 $baseline;
   border-top: 1px solid $off-white;
+
   @media screen and (max-width: $medium) {
     position: -webkit-sticky;
     position: sticky;
-    bottom:0;
+    bottom: 0;
   }
 }
 
@@ -72,23 +74,23 @@
   line-height: $baseline*.5;
   right: $baseline*1.2;
   top: $baseline*1.2;
-  
+
   & svg {
     fill: $dark-gray;
     @include transition(all ease-in-out .15s);
   }
-  
+
   &:hover svg {
     fill: $darkest-gray;
   }
-  
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       left: $baseline;
       right: unset;
     }
   }
-  
+
   @media screen and (max-width: $medium) {
     top: $baseline * 1.05;
   }
@@ -109,18 +111,41 @@
   visibility: hidden;
   @include transition-prefixed(transform 300ms $easing-function, visibility 0ms linear 300ms, opacity 300ms $easing-function);
   @include transform(translate3d(0, 20px, 0));
-  
+
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       float: none;
       text-align: right;
     }
   }
+}
 
-  @media screen and (max-width: $medium) {
+.modal-wrapper.modal-mobile-sheet {
+  @media screen and (max-width: $small) {
     position: absolute;
     margin: 0;
     bottom: 0;
+    top: initial;
+
+    & .modal-header {
+      border-top: 4px solid $blue;
+      border-radius: 2px 2px 0 0;
+    }
+
+    &.modal-mobile-sheet-destructive .modal-header {
+      border-top-color: $red;
+    }
+  }
+}
+
+.modal-wrapper.modal-mobile-takeover {
+  @media screen and (max-width: $small) {
+    min-height: 100vh;
+    max-height: 100vh;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    top: 0;
   }
 }
 
@@ -128,23 +153,23 @@
   .modal-overlay {
     @include modal-overlay();
   }
-  
+
   .modal-wrapper {
     @include modal-wrapper();
   }
-  
+
   .modal-content {
     @include modal-content();
   }
-  
+
   .modal-header {
     @include modal-header();
   }
-  
+
   .modal-footer {
     @include modal-footer();
   }
-  
+
   .modal-toggle {
     @include modal-toggle();
   }
