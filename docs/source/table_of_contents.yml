@@ -367,23 +367,35 @@ components:
             - btn
           modifiers:
             - btn-transparent
+            - btn-transparent-dark
+            - btn-transparent-red
             - btn-clear
+            - btn-clear-dark
+            - btn-clear-red
+            - btn-border
+            - btn-border-dark
+            - btn-border-red
+            - btn-light
+            - btn-dark
+            - btn-red
+            - btn-extrasmall
             - btn-small
             - btn-large
+            - btn-extralarge
             - btn-fill
             - btn-half
             - btn-disabled
-            - btn-red
-            - btn-green
           modifiers-dark:
-            - btn-white
-            - btn-clear-white
-        - title: 'Button Groups'
-          link: button-groups
-          status: complete
-          classes:
-            - btn-grouped
-          modifiers: false
+            - btn-transparent-light
+            - btn-border-light
+            - btn-clear-light
+            - btn-light
+            - btn-clear
+            - btn-clear-dark
+            - btn-clear-red
+            - btn-border
+            - btn-border-dark
+            - btn-border-red
         - title: 'Labels'
           link: label
           status: 'complete'

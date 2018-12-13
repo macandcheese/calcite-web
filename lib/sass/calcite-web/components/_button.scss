@@ -9,20 +9,15 @@
   display: inline-block;
   padding: $baseline/4 1rem;
   width: auto;
-  color: $white;
-  border: 1px solid $blue;
   border-radius: 0;
-  background-color: $blue;
-  @include box-sizing(border-box);
-  @include transition(all 0.05s linear);
   cursor: pointer;
   white-space: nowrap;
+  text-align: center;
+  @include box-sizing(border-box);
+  @include transition(all 0.15s ease-in-out);
   @include font-size(-1);
   &:hover {
     text-decoration: none;
-    color: $white;
-    background-color: $dark-blue;
-    border-color: $dark-blue;
   }
 }
 
@@ -32,173 +27,149 @@
   opacity: 0.3;
 }
 
-@mixin btn-transparent() {
-  background: none;
-  color: $link-color;
-  border: none;
-  &:hover {
-    color: $link-hover;
-    background: none;
-    text-decoration: underline;
-  }
-}
+@mixin btn-half() {
+  width: 50%;
 
-@mixin btn-clear() {
-  color: $blue;
-  background: $white;
-  border-color: $blue;
-  &:hover {
-    color: $white;
-    background: $dark-blue;
-    border-color: $dark-blue;
-  }
-}
-
-@mixin btn-clear-gray() {
-  background: none;
-  color: $gray;
-  border-color: $gray;
-  &:hover {
-    color: $white;
-    background: $dark-gray;
-    border-color: $dark-gray;
-  }
-}
-
-@mixin btn-clear-white() {
-  background: none;
-  color: $white;
-  border: 1px solid $white;
-  &:hover {
-    color: $gray;
-    background: $white;
-    border-color: $white;
-  }
-}
-
-@mixin btn-white() {
-  background: $white;
-  color: $off-black;
-  border: 1px solid $white;
-  &:hover {
-    color: $off-black;
-    background: $lightest-gray;
-    border-color: $lightest-gray;
-  }
-}
-
-@mixin btn-small() {
-  @include font-size(-2);
-  padding: $baseline/4 * 0.75 1rem * 0.75;
-}
-
-@mixin btn-large() {
-  @include font-size(0);
-  padding: 0.5rem 1rem;
 }
 
 @mixin btn-fill() {
   width: 100%;
-  text-align: center;
 }
 
-@mixin btn-half() {
-  width: 50%;
-  text-align: center;
-}
-
-@mixin btn-grouped() {
-  @include left();
-  & + .btn-grouped {
-    margin-left: 1px;
-    @if ($include-right-to-left) {
-      html[dir="rtl"] & {
-        margin-left: 0;
-        margin-right: 1px;
-      }
-    }
+@mixin btn-size($font-size, $padding) {
+  padding: $padding;
+  @if $font-size != 0 {
+    @include font-size($font-size);
   }
-  &:last-of-type {
-    float: none;
-  }
-  &.btn-half {
-    margin-left: 0;
+  @else {
+    font-size: 1.1rem;
   }
 }
 
-@mixin btn-red() {
-  color: $red;
-  background: transparent;
-  border-color: $red;
-  &:hover {
-    color: $white;
-    background: $dark-red;
-    border-color: $dark-red;
+@mixin button-underline-animation() {
+  position: relative;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $blue;
+    transition: all .3s ease-in-out;
   }
-}
-
-@mixin btn-color($value, $hover-value) {
-  background-color: $value;
-  border-color: $value;
-  &:hover {
-    background-color: $hover-value;
-    border-color: $hover-value;
+  &:hover:after {
+    width: 100%;
   }
 }
 
 @mixin btn-link() {
   -webkit-appearance: none;
-  @include font-size(0);
+  @include font-size(-1);
   cursor: pointer;
   padding: 0;
   border: none;
   outline: none;
   color: $blue;
   background: transparent;
+  @include button-underline-animation;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: $blue;
+  }
+  &:active {
+    color: $blue;
+    &:after {
+      background-color: $dark-blue;
+    }
   }
 }
 
-@if $include-button == true {
+@mixin btn-color($color, $hover-color, $bg-color, $bg-hover-color) {
+  background-color: $bg-color;
+  border:1px solid $bg-color;
+  color: $color;
+  box-shadow: inset 0 0 0 1px transparent;
+  &:hover {
+    background-color: $bg-hover-color;
+    border-color: $bg-hover-color;
+    color: $hover-color;
+    box-shadow: inset 0 0 0 1px $bg-hover-color;
+  }
+}
+
+@mixin btn-clear($color, $hover-color, $bg-color, $bg-hover-color) {
+  background-color: transparent;
+  border-color: $bg-color;
+  color: $bg-color;
+  &:hover {
+    background-color: transparent;
+    border-color: $bg-color;
+    color: $bg-color;
+    box-shadow: inset 0 0 0 1px $bg-color;
+  }
+  &:active {
+    border-color: $bg-hover-color;
+    color: $bg-hover-color;
+    box-shadow: inset 0 0 0 2px $bg-hover-color;
+  }
+}
+@mixin btn-border($color, $hover-color, $bg-color, $bg-hover-color) {
+  background-color: $white;
+  border-color: $bg-color;
+  color: $bg-color;
+  &:hover {
+    background-color: $white;
+    border-color: $bg-color;
+    color: $bg-color;
+    box-shadow: inset 0 0 0 1px $bg-hover-color;
+  }
+  &:active {
+    border-color: $bg-hover-color;
+    color: $bg-hover-color;
+    box-shadow: inset 0 0 0 2px $bg-hover-color;
+  }
+}
+
+@mixin btn-transparent($color, $hover-color, $bg-color, $bg-hover-color) {
+  @include button-underline-animation;
+  background-color: transparent;
+  border-color: transparent;
+  color: $bg-color;
+  &:after {
+    background-color: $bg-color;
+    position: unset;
+  }
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: $bg-color;
+    box-shadow: none;
+  }
+  &:active {
+    color: $bg-hover-color;
+    &:after {
+      background-color: $bg-hover-color;
+    }
+  }
+}
+
+@if $include-button==true {
   .btn {
     @include btn();
   }
-  .btn-transparent {
-    @include btn-transparent();
+
+  .btn-link {
+    @include btn-link();
   }
-  .btn-clear {
-    @include btn-clear();
-  }
-  .btn-clear-white {
-    @include btn-clear-white();
-  }
-  .btn-small {
-    @include btn-small();
-  }
-  .btn-large {
-    @include btn-large();
-  }
+
   .btn-fill {
     @include btn-fill();
   }
+
   .btn-half {
     @include btn-half();
-  }
-  .btn-grouped {
-    @include btn-grouped();
-  }
-  .btn-white {
-    @include btn-white();
-  }
-  .btn-red {
-    @include btn-red();
-  }
-  .btn-green {
-    @include btn-color($green, $dark-green);
-  }
-  .btn-link {
-    @include btn-link();
   }
 
   .btn:disabled,
@@ -209,7 +180,48 @@
 
   input[type="file"]::-webkit-file-upload-button,
   ::-ms-browse {
-    webkit-appearance: none;
+    -webkit-appearance: none;
     @include btn();
+  }
+
+  $btnScales: 
+  '-extrasmall' -3 'calc(#{$baseline}/7.5) calc(#{$baseline}*.5)',
+  '-small' -2 'calc(#{$baseline}/6) calc(#{$baseline}*.75)',
+  '-large' 0 'calc(#{$baseline}/3) calc(#{$baseline}*1.25)',
+  '-extralarge' 1 'calc(#{$baseline}/1.5) calc(#{$baseline}*1.5)';
+  
+  @each $btnScale in $btnScales {
+    $name: nth($btnScale, 1);
+    $font-size: nth($btnScale, 2);
+    $padding: nth($btnScale, 3);
+    .btn#{$name} {
+      @include btn-size($font-size, #{$padding});
+    }
+  }
+
+  $btnColors: 
+  '' $off-white $white $blue $dark-blue,
+  '-dark' $off-white $white $darkest-gray $off-black,
+  '-light' $darkest-gray $off-black $white $lightest-gray,
+  '-red' $off-white $white $red $dark-red;
+
+  @each $btnColor in $btnColors {
+    $name: nth($btnColor, 1);
+    $color: nth($btnColor, 2);
+    $hover-color: nth($btnColor, 3);
+    $bg-color: nth($btnColor, 4);
+    $bg-hover-color: nth($btnColor, 5);
+    .btn#{$name} {
+      @include btn-color(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+    }
+    .btn-clear#{$name} {
+      @include btn-clear(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+    }
+    .btn-border#{$name} {
+      @include btn-border(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+    }
+    .btn-transparent#{$name} {
+      @include btn-transparent(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+    }
   }
 }
