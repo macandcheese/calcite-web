@@ -27,7 +27,7 @@
     visibility: visible;
     opacity: 1;
     @include transition-delay(0ms);
-    .modal-content {
+    & .modal-wrapper {
       visibility: visible;
       opacity: 1;
       @include transition-delay(0ms);
@@ -36,32 +36,116 @@
   }
 }
 
-  @mixin modal-content() {
-    box-sizing: border-box;
-    max-height: 80vh;
-    z-index: 102;
-    float: none;
-    @if ($include-right-to-left) {
-      html[dir="rtl"] & {
-        float: none;
-        text-align: right;
-      }
+@mixin modal-header() {
+  background-color: rgba($white,0.96);
+  padding: $baseline $baseline*2.5 $baseline $baseline;
+  border-bottom: 1px solid $lightest-gray;
+  @if ($include-right-to-left) {
+    html[dir="rtl"] & {
+      padding: $baseline $baseline 0 $baseline*2.5;
     }
-    background: $white;
-    padding: $baseline;
-    text-align: left;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    display: inline-block;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-    opacity: 0;
-    visibility: hidden;
-    @include transition-prefixed(transform 300ms $easing-function, visibility 0ms linear 300ms, opacity 300ms $easing-function);
-    @include transform(translate3d(0, 20px, 0));
+  }
+  @media screen and (max-width: $medium) {
+    border-radius:4px 4px 0 0;
+  }
+}
+
+@mixin modal-footer() {
+  background-color: $white;
+  padding: $baseline/1.25 $baseline;
+  border-top: 1px solid $off-white;
+  @media screen and (max-width: $medium) {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom:0;
+  }
+}
+
+@mixin modal-content() {
+  padding: $baseline;
+  display: block;
+  background-color: $white;
+}
+
+@mixin modal-toggle() {
+  position: absolute;
+  line-height: $baseline*.5;
+  right: $baseline*1.2;
+  top: $baseline*1.2;
+  
+  & svg {
+    fill: $dark-gray;
+    @include transition(all ease-in-out .15s);
+  }
+  
+  &:hover svg {
+    fill: $darkest-gray;
+  }
+  
+  @if ($include-right-to-left) {
+    html[dir="rtl"] & {
+      left: $baseline;
+      right: unset;
+    }
+  }
+  
+  @media screen and (max-width: $medium) {
+    top: $baseline * 1.05;
+  }
+}
+
+@mixin modal-wrapper() {
+  box-sizing: border-box;
+  max-height: 80vh;
+  z-index: 102;
+  float: none;
+  text-align: left;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: inline-block;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  opacity: 0;
+  visibility: hidden;
+  @include transition-prefixed(transform 300ms $easing-function, visibility 0ms linear 300ms, opacity 300ms $easing-function);
+  @include transform(translate3d(0, 20px, 0));
+  
+  @if ($include-right-to-left) {
+    html[dir="rtl"] & {
+      float: none;
+      text-align: right;
+    }
   }
 
-@if $include-modal == true {
-  .modal-overlay { @include modal-overlay() ;}
-  .modal-content { @include modal-content() ;}
+  @media screen and (max-width: $medium) {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+  }
+}
+
+@if $include-modal==true {
+  .modal-overlay {
+    @include modal-overlay();
+  }
+  
+  .modal-wrapper {
+    @include modal-wrapper();
+  }
+  
+  .modal-content {
+    @include modal-content();
+  }
+  
+  .modal-header {
+    @include modal-header();
+  }
+  
+  .modal-footer {
+    @include modal-footer();
+  }
+  
+  .modal-toggle {
+    @include modal-toggle();
+  }
 }
