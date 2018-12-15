@@ -5,8 +5,9 @@
 The HTML structure of modals has changed, please be sure to update your markup.
 </p>
 <p class='leader-half trailer-0 font-size--1'>
-Distinct <em>modal-header</em>, <em>modal-footer</em>, and <em>modal-content</em> sections have been added to facilitate better spacing and placement of action buttons. It is recommended to place the main action button in a leading position within the footer.
+Distinct <em>modal-header</em>, <em>modal-footer</em>, and <em>modal-content</em> sections have been added to facilitate better spacing and placement of action buttons. It is recommended to place the main action button in a leading position within the footer.  Modal Takeover, and Modal Sheet (DIalogue have been added.) Modal Takeover provides full-width space for actions with a close button (useful for mobile steppers, invite members,etc wip), and modal sheet is useful for confirmation actions or dialogues with users and can be either informative (blue) or destructive (red). destructive dialogues DO NOT have a close button - users must explicitly confirm their destructive action or cancel out of the action and dialogue.
 </p>
+
 </div>
 
 Modals are meant to "take over" the screen and focus users attention on a dialog which presents the user with an opportunity to add, modify or create content. A modal should always be centered both vertically and horizontally within the browser window. When a modal is opened, the interface darkens and disables all other user interface elements in order to force a user to take an action required by their workflow. Two modals can't be open at once.

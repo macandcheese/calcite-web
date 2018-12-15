@@ -1,11 +1,12 @@
 <div class="js-modal modal-overlay {{modifier}}" data-modal="foo">
     <div class="modal-wrapper" aria-labelledby="modal" role="dialog">
-            <div class="column-12 center-column">
+        <div class="column-12 center-column"></div>
             <div class="modal-header">
                 <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
-                   <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'><path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
-                    </a>
-                <h3 class="trailer-0">A Great Modal!</h3>
+                    <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'>
+                        <path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
+                </a>
+                <h4 class="trailer-0">A Great Modal!</h4>
             </div>
             <div class="modal-content">
                 <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -23,83 +24,104 @@
     </div>
 </div>
 <div class="js-modal modal-overlay {{modifier}}" data-modal="baz">
-    <div class="modal-wrapper modal-mobile-sheet" aria-labelledby="modal" role="dialog">
-        <div class="column-12 center-column">
-            <div class="modal-header">
-                <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
-                    <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'><path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
-                    </a>
-                <h3 class="trailer-0">Another Modal with a potentially really long two-line title!</h3>
-            </div>
-            <div class="modal-content">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.</p>
-                    <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="modal-footer text-right">
-                <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
-                <button class="btn js-modal-toggle">Okay</button>
-            </div>
+    <div class="modal-wrapper modal-sheet" aria-labelledby="modal" role="dialog">
+        <div class="modal-header">
+            <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
+                <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'>
+                    <path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
+            </a>
+            <h4 class="trailer-0">Another Modal with a potentially really long two-line title!</h4>
+        </div>
+        <div class="modal-content">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="modal-footer text-right">
+            <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
+            <button class="btn js-modal-toggle">Okay</button>
         </div>
     </div>
 </div>
 
 <div class="js-modal modal-overlay {{modifier}}" data-modal="bar">
-    <div class="modal-wrapper modal-mobile-sheet modal-mobile-sheet-destructive" aria-labelledby="modal" role="dialog">
-        <div class="column-12 center-column">
-            <div class="modal-header">
-                <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
-                    <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'><path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
-                    </a>
-                <h3 class="trailer-0">Another Modal with a potentially really long two-line title!</h3>
-            </div>
-            <div class="modal-content">
-
-                    <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="modal-footer text-right">
-                <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
-                <button class="btn js-modal-toggle">Okay</button>
-            </div>
+    <div class="modal-wrapper modal-sheet modal-sheet-destructive" aria-labelledby="modal" role="dialog">
+        <div class="modal-header">
+            <h4 class="trailer-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="modal-title-svg" viewBox="0 0 24 24">
+                    <path d="M22.3 19.795l-9-17.901a1.5 1.5 0 0 0-2.597 0L1.7 19.795a1.502 1.502 0 0 0 0 1.502A1.456 1.456 0 0 0 2.998 22H21a1.458 1.458 0 0 0 1.299-.703 1.506 1.506 0 0 0 .001-1.502zM13 19h-2v-2h2zm0-3h-2V8h2z" /></svg>
+                Do you want to remove this user?</h4>
+        </div>
+        <div class="modal-content">
+            <p class="trailer-0">Removing this user will delete all information associated with their account. They
+                will be unrecoverable.</p>
+        </div>
+        <div class="modal-footer text-right">
+            <button class="btn btn-clear js-modal-toggle margin-right-quarter">No, cancel</button>
+            <button class="btn btn-red js-modal-toggle">Delete</button>
         </div>
     </div>
 </div>
 <div class="js-modal modal-overlay {{modifier}}" data-modal="bif">
-    <div class="modal-wrapper modal-mobile-takeover column-12 center-column" aria-labelledby="modal" role="dialog">
+    <div class="modal-wrapper modal-takeover" aria-labelledby="modal" role="dialog">
 
-            <div class="modal-header">
-                <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
-                    <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'><path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
-                    </a>
-                <h3 class="trailer-0">Another Modal with a potentially really long two-line title!</h3>
-            </div>
-            <div class="modal-content">
-
-                    <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <div class="modal-footer text-right">
-                <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
-                <button class="btn js-modal-toggle">Okay</button>
-            </div>
+        <div class="modal-header">
+            <a class="js-modal-toggle modal-toggle" href="#" aria-label="close-modal">
+                <svg xmlns='http://www.w3.org/2000/svg' height='24' width='24' viewBox='0 0 24 24'>
+                    <path d='M13.207 12.5l7.778 7.778-.707.707-7.778-7.778-7.778 7.778-.707-.707 7.778-7.778-7.778-7.778.707-.707 7.778 7.778 7.778-7.778.707.707z' /></svg>
+            </a>
+            <h4 class="trailer-0">Another Modal with a potentially really long two-line title!</h4>
+        </div>
+        <div class="modal-content">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet,
+                consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            <p class="trailer-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="modal-footer text-right">
+            <button class="btn btn-clear js-modal-toggle margin-right-quarter">Cancel</button>
+            <button class="btn js-modal-toggle">Okay</button>
+        </div>
     </div>
 </div>
 <a class="js-modal-toggle btn" href="#" data-modal="foo"><span>Show Modal</span></a>
