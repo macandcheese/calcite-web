@@ -23,12 +23,12 @@
   background: $transparent-black;
   @include transition(visibility 0ms linear 300ms, opacity 300ms $easing-function);
   z-index: 101;
-
+  
   &.is-active {
     visibility: visible;
     opacity: 1;
     @include transition-delay(0ms);
-
+    
     & .modal-wrapper {
       visibility: visible;
       opacity: 1;
@@ -45,13 +45,13 @@
   border-bottom: 1px solid $lightest-gray;
   z-index: 2;
   box-shadow: 0 1px 15px 5px rgba(255, 255, 255, 0.9), 0 1px 0 rgba($white, 1.0);
-
+  
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       padding: $baseline $baseline 0 $baseline*2.5;
     }
   }
-
+  
 }
 
 @mixin modal-footer() {
@@ -61,7 +61,7 @@
   border-top: 1px solid $lightest-gray;
   z-index: 2;
   box-shadow: 0 -1px 15px 5px rgba(255, 255, 255, 0.9), 0 -1px 0 rgba($white, 1.0);
-
+  
   @media screen and (max-width: $medium) {
     position: -webkit-sticky;
     position: sticky;
@@ -84,23 +84,23 @@
   line-height: $baseline*.5;
   right: $baseline*1.2;
   top: $baseline*1.2;
-
+  
   & svg {
     fill: $dark-gray;
     @include transition(all ease-in-out .15s);
   }
-
+  
   &:hover svg {
     fill: $darkest-gray;
   }
-
+  
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       left: $baseline;
       right: unset;
     }
   }
-
+  
 }
 
 @mixin modal-wrapper() {
@@ -118,7 +118,7 @@
   visibility: hidden;
   @include transition-prefixed(transform 300ms $easing-function, visibility 0ms linear 300ms, opacity 300ms $easing-function);
   @include transform(translate3d(0, 20px, 0));
-
+  
   @if ($include-right-to-left) {
     html[dir="rtl"] & {
       float: none;
@@ -127,16 +127,18 @@
   }
 }
 
+// todo full width always modal takeover
+
 .modal-wrapper.modal-sheet {
   & .modal-header {
     border-top: 4px solid $blue;
     border-radius: 2px 2px 0 0;
   }
-
+  
   &.modal-sheet-destructive .modal-header {
     border-top-color: $red;
   }
-
+  
   @media screen and (max-width: $small) {
     min-width: 100vw;
     max-width: 100vw;
@@ -145,7 +147,7 @@
     margin: 0;
     bottom: 0;
     top: initial;
-
+    
   }
 }
 
@@ -154,21 +156,23 @@
   max-width: 100vw;
   min-height: 100vh;
   max-height: 100vh;
-
+  
   & .modal-content {
     flex: 1 1 auto;
   }
-
+  
   @media screen and (min-width: $large) {
-    min-width: 90vw;
-    max-width: 90vw;
-    min-height: 100vh;
-    max-height: 100vh;
-
-    &.modal-header,
-    &.modal-footer,
-    &.modal-content {
+    &:not(.modal-takeover-unconstrained) {
+      min-width: 90vw;
       max-width: 90vw;
+      min-height: 100vh;
+      max-height: 100vh;
+      
+      &.modal-header,
+      &.modal-footer,
+      &.modal-content {
+        max-width: 90vw;
+      }
     }
   }
 }
@@ -186,23 +190,23 @@
   .modal-overlay {
     @include modal-overlay();
   }
-
+  
   .modal-wrapper {
     @include modal-wrapper();
   }
-
+  
   .modal-content {
     @include modal-content();
   }
-
+  
   .modal-header {
     @include modal-header();
   }
-
+  
   .modal-footer {
     @include modal-footer();
   }
-
+  
   .modal-toggle {
     @include modal-toggle();
   }
