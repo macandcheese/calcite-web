@@ -67,6 +67,15 @@
     position: sticky;
     bottom: 0;
   }
+  @media screen and (max-width: $small) {
+    & a.btn, button.btn {
+      display: block;
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: $baseline / 1.5;
+      }
+    }
+  }
 }
 
 @mixin modal-content() {
