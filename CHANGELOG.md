@@ -25,6 +25,12 @@ Several patterns were removed which are now replaced by the [global-nav componen
 - :warning: `svg-icon` class no longer sets size of icon, use `width` and `height` attributes
 - `dropdown` and `accordion` components must use SVG (no icon font)
 
+#### Modals
+- :warning: refactored html structure of modals
+- added multiple opt in classes for display and accent colors
+- enforce full-width buttons for mobile versions of modals (?)
+
+
 ## [1.2.0]
 
 ### Added
