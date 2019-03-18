@@ -25,7 +25,7 @@ Sometimes, the proper semantic element is a button, but you would rather the ele
 
 <button class="btn-link">This is a button</button>
 
-The `btn-link` class also allows you to style inline anchors you wish to receive an underline animation. Here's <a class="btn-link">an example of a btn-link</a> within a block of text that may wrap. Sometimes, the proper semantic element is a button, but you would rather the element look more like a link. In these instances, Calcite Web provides an alternate class <a class="btn-link">of a btn-link</a> which styles a button element as if it were a simple anchor:
+The `btn-link` class also allows you to style inline anchors you wish to receive an underline animation. Here's <a class="btn-link font-size--4">an example of a btn-link</a> within a block of text that may wrap. Sometimes, the proper semantic element is a button, but you would rather the element look more like a link. In these instances, Calcite Web provides an alternate class <a class="btn-link">of a btn-link</a> which styles a button element as if it were a simple anchor:
 
 ```html
 <button class="btn-link">This is a button</button>
