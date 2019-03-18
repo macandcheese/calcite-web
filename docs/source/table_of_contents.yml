@@ -485,9 +485,10 @@ components:
             - overflow-auto
           modifiers:
             - table-blue
-            - table-striped
-            - table-plain
             - table-striped table-blue
+            - table-striped
+            - table-minimal
+            - table-plain
             - table-no-table
     - group: 'Forms'
       pages:
@@ -561,16 +562,6 @@ components:
             - animate-in-up
             - animate-out-down
             - animate-out-up
-    - group: 'Branding'
-      pages:
-        - title: 'Esri Logo'
-          link: esri-logo
-          status: 'complete'
-          classes:
-            - esri-logo
-          modifiers:
-            - 'esri-logo-reverse'
-            - 'esri-logo-condensed'
 patterns:
   title: 'Patterns'
   base: patterns
@@ -614,9 +605,6 @@ patterns:
             - 'tabs-dark'
         - title: 'Accordions'
           link: accordions
-          modifiers: false
-        - title: 'Drawers'
-          link: drawers
           modifiers: false
         - title: 'Filter Dropdown'
           link: 'filter-dropdown'
