@@ -21,12 +21,6 @@
   }
 }
 
-@mixin btn-disabled() {
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.3;
-}
-
 @mixin btn-half() {
   width: 50%;
 }
@@ -160,9 +154,6 @@
   }
   .btn-half {
     @include btn-half();
-  }
-  .btn:disabled, .btn-disabled, button[disabled] {
-    @include btn-disabled();
   }
   input[type="file"]::-webkit-file-upload-button,::-ms-browse {
     -webkit-appearance: none;

@@ -381,7 +381,6 @@ components:
             - btn-extralarge
             - btn-fill
             - btn-half
-            - btn-disabled
           modifiers-dark:
             - btn
             - btn-light
@@ -393,7 +392,6 @@ components:
             - btn-transparent
             - btn-transparent-light
             - btn-transparent-red
-            - btn-disabled
         
         - title: 'Labels'
           link: label
