@@ -1,10 +1,13 @@
 <div class="panel panel-gray leader-1 trailer-1">
 <mark class='label label-blue'>Calcite Web 2.0 Update</mark>
 <p class='leader-half trailer-0 font-size--1'>
-The dom structure of alerts has changed. To migrate your alerts, follow the structure below for arranging your elements.
+This update contains new button styles, and updates existing ones to ensure consistency across interfaces. More options for using red as an indication of a destructive action have been added.
 </p>
 <p class='leader-half trailer-0 font-size--1'>
-Button green has been removed, we recommend using primary 'btn' class for all leading actions. We've added some red actions to provide options for invoking destructive actions
+
+`btn-green` has been deprecated. Green should not be used for buttons or call to actions.
+
+`btn-white` has been renamed `btn-light`.
 </p>
 </div>
 
@@ -22,7 +25,7 @@ Sometimes, the proper semantic element is a button, but you would rather the ele
 
 <button class="btn-link">This is a button</button>
 
-The `btn-link` class also allows you to style inline anchors you wish to receive an underline animation. Here's <a class="btn-link font-size--4">an example of a btn-link</a> within a block of text that may wrap. Sometimes, the proper semantic element is a button, but you would rather the element look more like a link. In these instances, Calcite Web provides an alternate class <a class="btn-link">of a btn-link</a> which styles a button element as if it were a simple anchor:
+The `btn-link` class also allows you to style inline anchors you wish to receive an underline animation. Here's <a class="btn-link">an example of a btn-link</a> within a block of text that may wrap.
 
 ```html
 <button class="btn-link">This is a button</button>

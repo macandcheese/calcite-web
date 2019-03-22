@@ -29,7 +29,6 @@
 
 @mixin btn-half() {
   width: 50%;
-
 }
 
 @mixin btn-fill() {
@@ -104,7 +103,7 @@
 
 @mixin btn-clear($color, $hover-color, $bg-color, $bg-hover-color) {
   background-color: transparent;
-  border-color: $bg-color;
+  border:1px solid $bg-color;
   color: $bg-color;
   &:hover {
     background-color: transparent;
@@ -120,11 +119,15 @@
 }
 
 @mixin btn-transparent($color, $hover-color, $bg-color, $bg-hover-color) {
-  @include button-underline-animation;
-  padding-bottom: .4rem;
   background-color: transparent;
-  border-color: transparent;
+  border:1px solid transparent;
   color: $bg-color;
+  position: relative;
+  @include transition(all 0.15s ease-in);
+  background-image: linear-gradient(to right, $bg-color 0%, $bg-color 50%, $bg-color 100%), 
+                    linear-gradient(to right, rgba($light-gray,0.5) 0%, rgba($light-gray,0.5) 50%, rgba($light-gray,0.5) 100%),
+                    linear-gradient(to right, rgba($white,0.0) 0%, rgba($white,0.0) 50%, rgba($white,0.0) 100%);
+  background-repeat: no-repeat;
   background-position: bottom left 1rem, bottom left 1rem, center left 1rem;
   background-size: 0% 0.1em, calc(100% - (1rem * 2)) 0.1em, calc(100% - (1rem * 2)) 100% ; 
   &:hover {
@@ -132,10 +135,16 @@
     border-color: transparent;
     color: $bg-color;
     box-shadow: none;
+    background-image: linear-gradient(to right, $bg-color 0%, $bg-color 50%, $bg-color 100%),
+    linear-gradient(to right, rgba($light-gray,0.5) 0%, rgba($light-gray,0.5) 50%, rgba($light-gray,0.5) 100%),
+    linear-gradient(to right, rgba($white,0.0) 0%, rgba($white,0.0) 50%, rgba($white,0.0));
     background-size: calc(100% - (1rem * 2)) 0.1em, calc(100% - (1rem * 2)) 0.1em, calc(100% - (1rem * 2)) 100%;
   }
   &:active {
     color: $bg-hover-color;
+    background-image: linear-gradient(to right, $bg-hover-color 0%, $bg-hover-color 50%, $bg-hover-color 100%),
+    linear-gradient(to right, rgba($light-gray,0.5) 0%, rgba($light-gray,0.5) 50%, rgba($light-gray,0.5) 100%),
+    linear-gradient(to right, rgba($white,0.0) 0%, rgba($white,0.0) 50%, rgba($white,0.0));
   }
 }
 
@@ -152,12 +161,9 @@
   .btn-half {
     @include btn-half();
   }
-  .btn:disabled,
-  .btn-disabled,
-  button[disabled] {
+  .btn:disabled, .btn-disabled, button[disabled] {
     @include btn-disabled();
   }
-
   input[type="file"]::-webkit-file-upload-button,::-ms-browse {
     -webkit-appearance: none;
     @include btn();
@@ -174,7 +180,7 @@
     $font-size: nth($btnScale, 2);
     $padding: nth($btnScale, 3);
     .btn#{$name} {
-      @include btn-size($font-size, #{$padding});
+      @include btn-size($font-size, $padding);
     }
   }
 
@@ -191,13 +197,13 @@
     $bg-color: nth($btnColor, 4);
     $bg-hover-color: nth($btnColor, 5);
     .btn#{$name} {
-      @include btn-color(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+      @include btn-color($color, $hover-color, $bg-color, $bg-hover-color);
     }
     .btn-clear#{$name} {
-      @include btn-clear(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+      @include btn-clear($color, $hover-color, $bg-color, $bg-hover-color);
     }
     .btn-transparent#{$name} {
-      @include btn-transparent(#{$color}, #{$hover-color}, #{$bg-color}, #{$bg-hover-color});
+      @include btn-transparent($color, $hover-color, $bg-color, $bg-hover-color);
     }
   }
 }

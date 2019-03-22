@@ -366,15 +366,15 @@ components:
           classes:
             - btn
           modifiers:
-            - btn-transparent
-            - btn-transparent-dark
-            - btn-transparent-red
-            - btn-clear
-            - btn-clear-dark
-            - btn-clear-red
             - btn-light
             - btn-dark
             - btn-red
+            - btn-clear
+            - btn-clear-dark
+            - btn-clear-red
+            - btn-transparent
+            - btn-transparent-dark
+            - btn-transparent-red
             - btn-extrasmall
             - btn-small
             - btn-large
@@ -383,13 +383,18 @@ components:
             - btn-half
             - btn-disabled
           modifiers-dark:
-            - btn-transparent-light
-            - btn-border-light
-            - btn-clear-light
+            - btn
             - btn-light
+            - btn-dark
+            - btn-red
             - btn-clear
-            - btn-clear-dark
+            - btn-clear-light
             - btn-clear-red
+            - btn-transparent
+            - btn-transparent-light
+            - btn-transparent-red
+            - btn-disabled
+        
         - title: 'Labels'
           link: label
           status: 'complete'
