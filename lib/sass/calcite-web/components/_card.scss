@@ -71,8 +71,11 @@
 }
 
 @mixin card-footer {
-  background: $off-white;
+  margin-top: .5rem;
+  display: flex;
+  flex-direction: row-reverse;
   padding-right: .5rem;
+  border-top: 1px solid $lighter-gray;
 }
 
 @mixin card-icon {
@@ -80,13 +83,20 @@
   padding: .8rem .6rem;
   height: 16px;
   svg {
-    fill: $dark-gray;
+    fill: $darker-gray;
+  }
+  &:hover {
+    svg {
+      fill: $off-black;
+    }
+    cursor: pointer;
   }
 }
 
 @mixin card-bar($color) {
   border-top: 3px solid $color;
 }
+
 
 // Wide Card - - - - - - - - - - - - //
 @mixin card-wide () {
