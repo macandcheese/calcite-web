@@ -19,6 +19,12 @@
   }
 }
 
+@mixin card-title {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @mixin card-image-wrap () {
   width: 100%;
   position: relative;
@@ -62,7 +68,7 @@
 }
 
 @mixin card-sub-content {
-  color: $gray;
+  color: $dark-gray;
   margin-top: 1rem;
 }
 
@@ -71,9 +77,17 @@
 }
 
 @mixin card-footer {
-  margin-top: .5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
+  -webkit-box-flex: 1 1 75%;
+  -ms-flex: 1 1 75%;
+  flex: 1 1 75%;
+  margin-top: .5rem;
   padding-right: .5rem;
   border-top: 1px solid $lighter-gray;
 }
@@ -137,6 +151,7 @@
   .card-image-wrap           { @include card-image-wrap();}
   .card-image                { @include card-image();}
   .card-image-caption        { @include card-image-caption();}
+  .card-title                { @include card-title();}
   .card-last                 { @include card-last();}
   .card-content              { @include card-content();}
   .card-sub-content          { @include card-sub-content();}
