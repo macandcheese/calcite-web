@@ -25,22 +25,6 @@
   flex: 0 0 auto;
 }
 
-@mixin card-shaped () {
-  box-shadow: none;
-  background: transparent;
-  .card-content {
-    border: 1px solid $transparent-off-white;
-    box-shadow: $box-shadow;
-    padding-top: 4rem;
-  }
-  .card-image-wrap {
-    margin-bottom: -3rem;
-    padding: 0 1.25rem;
-    box-sizing: border-box;
-  }
-}
-
-
 @mixin card-image-caption () {
   background: $opaque-white;
   color: $off-black;
@@ -123,7 +107,6 @@
   .card-image-caption        { @include card-image-caption();}
   .card-last                 { @include card-last();}
   .card-content              { @include card-content();}
-  .card-shaped               { @include card-shaped();}
   .card-bar-lightest-blue    { @include card-bar($lightest-blue);}
   .card-bar-lighter-blue     { @include card-bar($lighter-blue);}
   .card-bar-light-blue       { @include card-bar($light-blue);}

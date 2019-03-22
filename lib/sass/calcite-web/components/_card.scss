@@ -14,6 +14,9 @@
   position: relative;
   background: $white;
   box-shadow: 0 0 0 1px $transparent-off-white, $box-shadow;
+  &:hover {
+    box-shadow: 0 0 0 2px $light-blue;
+  }
 }
 
 @mixin card-image-wrap () {
@@ -24,22 +27,6 @@
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
-
-@mixin card-shaped () {
-  box-shadow: none;
-  background: transparent;
-  .card-content {
-    border: 1px solid $transparent-off-white;
-    box-shadow: $box-shadow;
-    padding-top: 4rem;
-  }
-  .card-image-wrap {
-    margin-bottom: -3rem;
-    padding: 0 1.25rem;
-    box-sizing: border-box;
-  }
-}
-
 
 @mixin card-image-caption () {
   background: $opaque-white;
@@ -60,7 +47,7 @@
 }
 
 @mixin card-content () {
-  padding: 1rem;
+  padding: .8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,8 +61,27 @@
   word-wrap: break-word;
 }
 
+@mixin card-sub-content {
+  color: $gray;
+  margin-top: 1rem;
+}
+
 @mixin card-last {
   margin-bottom: auto;
+}
+
+@mixin card-footer {
+  background: $off-white;
+  padding-right: .5rem;
+}
+
+@mixin card-icon {
+  float: right;
+  padding: .8rem .6rem;
+  height: 16px;
+  svg {
+    fill: $dark-gray;
+  }
 }
 
 @mixin card-bar($color) {
@@ -123,7 +129,9 @@
   .card-image-caption        { @include card-image-caption();}
   .card-last                 { @include card-last();}
   .card-content              { @include card-content();}
-  .card-shaped               { @include card-shaped();}
+  .card-sub-content          { @include card-sub-content();}
+  .card-icon                 { @include card-icon();}
+  .card-footer               { @include card-footer();}
   .card-bar-lightest-blue    { @include card-bar($lightest-blue);}
   .card-bar-lighter-blue     { @include card-bar($lighter-blue);}
   .card-bar-light-blue       { @include card-bar($light-blue);}
