@@ -112,10 +112,15 @@
     padding: .8rem;
     @include transition(all .15s ease-in-out);
     cursor: pointer;
-    border-radius:50px;
     width: auto;
     & svg {
       height: 16px;
+    }
+    &:hover {
+      background-color: $off-white;
+      & svg {
+        fill: $off-black;
+      }
     }
     margin-right: auto;
 }
