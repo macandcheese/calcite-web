@@ -36,7 +36,7 @@
   }
 
   fieldset {
-    margin: 0 0 $baseline 0;
+    margin: 0 0 $baseline/1.5 0;
     padding: 0;
     border: none;
     display: block;
@@ -45,7 +45,7 @@
   label {
     position: relative;
     display: block;
-    margin: 0 0 $baseline 0;
+    margin: 0 0 $baseline/1.5 0;
   }
 
   legend {
@@ -84,7 +84,8 @@
 
     }
     &:focus {
-      box-shadow: inset 0 -3px 0 0 $blue;
+      border-color: $blue;
+      box-shadow: inset 0 -1px 0 0 $blue;
       background-color: white;
     }
   }
@@ -125,28 +126,32 @@
   //  ↳ http://esri.github.io/calcite-web/documentation/components/#form-validation
   //  ↳ components → _form-validation.md
   .input-error {
-    padding-right: 24px;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeD0iMiIgeT0iMCI+PHBhdGggZmlsbD0iI2M4NmE0YSIgZD0iTTExLjIyNSwwSDQuNjQ4TDAsNC42NXY2LjU3Nmw0LjY0OCw0LjY0OWg2LjU3Nmw0LjY1LTQuNjQ5VjQuNjVMMTEuMjI1LDB6IE05LjA3MSwxMy42MDdINi44MDR2LTIuMjY5aDIuMjY4VjEzLjYwN3ogTTkuMDcxLDkuMDcxSDYuODA0VjMuNDAyaDIuMjY4VjkuMDcxeiIvPjwvc3ZnPg==');
+    padding-right: 2rem;
     background-position: right center;
     background-repeat: no-repeat;
+    border-color:red;
     &:focus {
       border-color: $red;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 0 5px rgba(200, 106, 75, 0.5);
+      box-shadow: inset 0 -1px 0 0 $red;
+      & ~ .input-error-message:before {
+        top:-18px;
     }
+    }
+   
   }
 
   .input-success {
-    padding-right: 24px;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjQgMTYiPjxwb2x5Z29uIGZpbGw9IiM1QTkzNTkiIHBvaW50cz0iOC4xODgsMTEuMDgyIDQuMDU5LDYuOTUyIDIuMjU4LDguNzUyIDguMTg4LDE0LjY4MyAxOS43NTQsMy4xMTkgMTcuOTU0LDEuMzE3ICIvPjwvc3ZnPg==');
+    padding-right: 2rem;
     background-position: right center;
     background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjQgMTYiPjxwb2x5Z29uIGZpbGw9IiM1QTkzNTkiIHBvaW50cz0iOC4xODgsMTEuMDgyIDQuMDU5LDYuOTUyIDIuMjU4LDguNzUyIDguMTg4LDE0LjY4MyAxOS43NTQsMy4xMTkgMTcuOTU0LDEuMzE3ICIvPjwvc3ZnPg==');
+
   }
   
   .input-error, .input-success {
     html[dir="rtl"] & {
-      padding-left: 24px;
-      padding-right: $baseline / 5;
-      background-position: left center;
+      padding-right: $baseline / 2;
+      background-position: left 10px center;
     }
   }
 
@@ -157,13 +162,40 @@
       display: none;
       position: relative;
       background-color:$off-white;
-      border-bottom:1px solid $lightest-gray;
-      border-top: 1px solid red;
+      border-top: 1px solid $red;
+      border-bottom: 1px solid $lightest-gray;
       z-index: 100;
-      margin:-1px 0 1rem;
-       padding: $baseline/2 $baseline/2;
-
+      margin:-1px 0 0;
       background-color: $white;
+    @include transition(all .15s ease-in-out);
+    &.is-success {
+      border-top-color: $green;
+      & .message-icon svg {
+        fill: $green;
+      }
+      &:before {
+        border-bottom-color:$green;
+      }
+    }
+    & .message-icon svg {
+      fill: $red;
+    }
+    & .message-content {
+      position:relative
+      &:after {
+        content: "";
+        position: absolute;
+        left: 11px;
+        top: -15px;
+        width: 0;
+        height: 0;
+        pointer-events: none;
+        border: 8px solid transparent;
+        border-bottom-color: $white;
+      @include transition(all .15s ease-in-out);
+  
+      }
+    }
     &:after {
       content: "";
       position: absolute;
@@ -174,6 +206,8 @@
       pointer-events: none;
       border: 8px solid transparent;
       border-bottom-color: $white;
+    @include transition(all .15s ease-in-out);
+
     }
     &:before {
       content: "";
@@ -185,6 +219,8 @@
       pointer-events: none;
       border: 8px solid transparent;
       border-bottom-color: $red;
+    @include transition(all .15s ease-in-out);
+
     }
     &:after, &:before {
       html[dir="rtl"] & {
