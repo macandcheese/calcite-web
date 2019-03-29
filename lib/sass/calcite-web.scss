@@ -43,6 +43,7 @@ $include-icons:                  $generate-css    !default;
 
 // Components
 $include-alerts:                 $generate-css    !default;
+$include-messages:               $generate-css    !default;
 $include-badges:                 $generate-css    !default;
 $include-labels:                 $generate-css    !default;
 $include-tables:                 $generate-css    !default;
@@ -112,6 +113,7 @@ $include-filter-dropdown:        $generate-css    !default;
 @import "calcite-web/components/breadcrumbs";
 @import "calcite-web/components/tooltip";
 @import "calcite-web/components/alert";
+@import "calcite-web/components/message";
 @import "calcite-web/components/panel";
 @import "calcite-web/components/table";
 @import "calcite-web/components/form";

@@ -1,0 +1,115 @@
+// ┌────────┐
+// │ Alerts │
+// └────────┘
+//  ↳ http://esri.github.io/calcite-web/documentation/components/#alerts
+//  ↳ components → _alerts.md
+
+@mixin message() {
+  @include font-size(-1);
+  @include text-color($transparent-black);
+  display: none;
+  position: relative;
+  border-top: 3px solid;
+  z-index: 100;
+  max-width: 40em;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 12px 0 rgba($black, 0.15);
+  &.is-active {
+    display: flex;
+  }
+}
+
+@mixin message-element-base() {
+  padding: $baseline/2 $baseline/2;
+  flex: 0 0 auto;
+  & svg {
+    position: relative;
+    vertical-align: top;
+    height: 16px;
+    width: 16px;
+  }
+}
+
+@mixin message-icon() {
+  @include message-element-base;
+  display: flex;
+  align-items: center;
+}
+
+@mixin message-content() {
+  @include message-element-base;
+  flex: 1 1 auto;
+  min-width: 0;
+  word-wrap: break-word;
+  &:first-child {
+    padding-left: $baseline;
+    @if ($include-right-to-left) {
+      html[dir="rtl"] & {
+        padding-left: initial;
+        padding-right: $baseline;
+      }
+    }
+  }
+}
+
+@mixin message-close() {
+  @include message-element-base;
+  @include transition(all .15s ease-in-out);
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  & svg {
+    fill: $darker-gray;
+  }
+  &:hover, &:focus {
+    background-color: $off-white;
+  }
+  &:active {
+    background-color: $lightest-gray;
+  }
+}
+
+@mixin message-color($color) {
+  border-top-color: $color;
+  & .message-icon svg {
+    fill: $color;
+  }
+}
+
+@mixin message-full() {
+  max-width: none;
+}
+
+@if $include-messages==true {
+  .message {
+    @include message();
+  }
+  .message-close {
+    @include message-close();
+  }
+  .message-content {
+    @include message-content();
+  }
+  .message-icon {
+    @include message-icon();
+  }
+  .message-full {
+    @include message-full();
+  }
+
+  $messageColors: 
+  '' $blue,
+  '-red' $red,
+  '-yellow' $yellow,
+  '-green' $green;
+
+  @each $messageColor in $messageColors {
+    $name: nth($messageColor, 1);
+    $color: nth($messageColor, 2);
+    .message#{$name} {
+      @include message-color($color);
+    }
+  }
+}

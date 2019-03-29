@@ -413,6 +413,16 @@ components:
             - alert-yellow
             - alert-green
             - alert-full
+        - title: 'Messages'
+          link: messages
+          status: 'complete'
+          classes:
+            - message
+          modifiers:
+            - message-red
+            - message-yellow
+            - message-green
+            - message-full
         - title: 'Panels'
           link: panels
           status: 'complete'
