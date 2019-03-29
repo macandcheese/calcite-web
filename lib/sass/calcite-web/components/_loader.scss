@@ -67,12 +67,12 @@ $loader-delay: 0.16s;
     100% {
       opacity: .75;
       box-shadow: 0 0 $blue;
-      height: $loader-height;
+      transform: translate3d(1,1,1);
     }
     40% {
       opacity: 1;
-      box-shadow: 0 -1*$loader-zoom $blue;
-      height: $loader-height+$loader-zoom;
+      box-shadow: 0 $loader-zoom $blue;
+      transform: translate3d(1,2,1);
     }
   }
   @keyframes load {
@@ -81,16 +81,16 @@ $loader-delay: 0.16s;
     100% {
       opacity: .75;
       box-shadow: 0 0 $blue;
-      height: $loader-height;
+      transform: translate3d(1,1,1);
     }
     40% {
       opacity: 1;
-      box-shadow: 0 -1*$loader-zoom $blue;
-      height: $loader-height+$loader-zoom;
+      box-shadow: 0 $loader-zoom $blue;
+      transform: translate3d(1,2,1);
     }
   }
-
+  
   .loader {@include loader();}
-    .loader-bars {@include loader-bars();}
-    .loader-text {@include loader-text();}
+  .loader-bars {@include loader-bars();}
+  .loader-text {@include loader-text();}
 }
