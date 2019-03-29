@@ -13,41 +13,58 @@ An message can consist of up to three children - `message-icon`, `message-conten
 
 #### message Icons
 It's recommended to pair a status icon with your message. Pairing an message status with an icon helps reinforce the intent of the message, and ensures accessibility.
+<div class="column-17">
+ 
+  <div class="column-10">
+  <div class="panel panel-white">
+ <h5 class="font-size-1">My great form</h5>
+<h6 class="avenir-bold font-size--3 light-gray">SECTION 1</h6>
 
-<div class="panel">
-<label class="toggle-switch">
-  <input type="checkbox" class="toggle-switch-input">
-  <span class="toggle-switch-track margin-right-1"></span>
-  <span class="toggle-switch-label font-size--1">Inline example</span>
+<label>
+  First Name
+  <input type="text"  value="Tom" required>
 </label>
-<label class="toggle-switch toggle-switch-destructive clearfix">
-  <span class="toggle-switch-label right font-size--1">Confirm account deletion. You cannot recover deleted accounts.</span>
-  <input type="checkbox" class="toggle-switch-input">
-  <span class="toggle-switch-track left"></span>
+<label>
+  Last Name
+  <input type="text"  value="Wafflestein" required>
 </label>
+ <div class="message is-active">
+ <div class="message-icon">
+  {% icon 'information', style='filled' %}
+</div>
+  <div class="message-content">
+  Some kind of dismissable, statused, message about this setting
+  </div>
+  <button class="message-close" aria-label="Close">
+    {% icon 'x' %}
+    </button>
+    </div>
 <label class="toggle-switch clearfix">
   <span class="toggle-switch-label left font-size--1">Enable Two-Factor Authentication</span>
   <input type="checkbox" class="toggle-switch-input" checked>
   <span class="toggle-switch-track right"></span>
 </label>
-    Upload profile photo
 
-<div class="message is-active">
-<div class="message-icon">
-  {% icon 'information', style='filled' %}
-</div>
-<div class="message-content">
-  This will be visible to other members to help quickly identify content ownership.
-</div>
-<button class="message-close" aria-label="Close">
-  {% icon 'x' %}
-</button>
-</div>
-&nbsp;
+
+
+
+
+<h6 class="avenir-bold leader-2 font-size--3 light-gray">SECTION 2</h6>
+
+
+   Upload profile photo
+    <div class="message message-green is-active">
+    <div class="message-icon">
+      {% icon 'check-circle', style='filled' %}
+    </div>
+      <div class="message-content">
+    Photo uploaded
+      </div>
+    </div>
     <input type="file">
-  </label>
 
 
+&nbsp;
   <fieldset class="fieldset-checkbox">
     <legend>Email Preferences (optional)</legend>
     <label>
@@ -73,6 +90,77 @@ It's recommended to pair a status icon with your message. Pairing an message sta
     </label>
   </fieldset>
   <label>
+
+<h6 class="avenir-bold leader-2 font-size--3 light-gray">DANGER ZONE</h6>
+   <div class="message message-red is-active">
+ <div class="message-icon">
+  {% icon 'information', style='filled' %}
+</div>
+  <div class="message-content">
+ These settings are potentially dangerous. Proceed with caution!
+  </div>
+    </div>
+<label class="toggle-switch toggle-switch-destructive clearfix">
+  <span class="toggle-switch-label left font-size--1">Disable Two-Factor Authentication</span>
+  <input type="checkbox" class="toggle-switch-input" checked>
+  <span class="toggle-switch-track right"></span>
+
+ 
+</label>
+
+
+
+
+
+
+
+
+<h6 class="avenir-bold leader-2 font-size--3 light-gray">FORM EXAMPLES</h6>
+   <div class="message message-red is-active">
+ <div class="message-icon">
+  {% icon 'information', style='filled' %}
+</div>
+  <div class="message-content">
+ Please correct the errors below to proceed.
+  </div>
+    </div>
+<label>
+  First Name
+  <input type="text" class="input-success" value="Tom" required>
+</label>
+<label>
+  Address
+  <input type="text" class="input-success" value="123 Main St." required>
+</label>
+
+<label>
+  First Name
+  <input type="text" class="input-success" value="Tom" required>
+</label>
+
+<label>
+  Password
+  <input type="text" required placeholder="At least 12 characters long" class="input-error">
+  <div class="input-error-message is-active">
+    Password does not meet minimum password requirements.
+  </div>
+</label>
+<label>
+ Something Else
+  <input type="text"value="Tom" required>
+</label>
+
   <button type="submit" class="btn">Submit</button>
 </form>
 </div>
+ </div>
+  <div class="column-7 tablet-first-column">
+Example of a form with these messages and also used as validation
+  </div>
+
+
+
+
+  
+</div>
+&nbsp;

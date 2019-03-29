@@ -1,21 +1,20 @@
 // ┌────────┐
-// │ Alerts │
+// │ messages │
 // └────────┘
-//  ↳ http://esri.github.io/calcite-web/documentation/components/#alerts
-//  ↳ components → _alerts.md
+//  ↳ http://esri.github.io/calcite-web/documentation/components/#messages
+//  ↳ components → _messages.md
 
 @mixin message() {
   @include font-size(-1);
   @include text-color($transparent-black);
   display: none;
   position: relative;
-  border-top: 3px solid;
+  background-color:$off-white;
   border-bottom:1px solid $lightest-gray;
+  border-top: 1px solid $lightest-gray;
   z-index: 100;
-  max-width: 100%;
-  border-radius:0;
-  margin:10px 0 0;
-  box-shadow: none;
+  margin:1rem 0;
+  background-color: $white;
   &.is-active {
     display: flex;
   }
@@ -58,7 +57,7 @@
   @include message-element-base;
   @include transition(all .15s ease-in-out);
   -webkit-appearance: none;
-  background: none;
+  background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
@@ -74,7 +73,6 @@
 }
 
 @mixin message-color($color) {
-  border-top-color: $color;
   & .message-icon svg {
     fill: $color;
   }
