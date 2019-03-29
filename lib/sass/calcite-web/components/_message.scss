@@ -10,10 +10,12 @@
   display: none;
   position: relative;
   border-top: 3px solid;
+  border-bottom:1px solid $lightest-gray;
   z-index: 100;
-  max-width: 40em;
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 0 12px 0 rgba($black, 0.15);
+  max-width: 100%;
+  border-radius:0;
+  margin:10px 0 0;
+  box-shadow: none;
   &.is-active {
     display: flex;
   }
