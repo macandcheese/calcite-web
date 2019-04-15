@@ -42,7 +42,6 @@
   background-color: $white;
   flex: 0;
   padding: $baseline $baseline*2.5 $baseline $baseline;
-  border-bottom: 1px solid $lightest-gray;
   z-index: 2;
   box-shadow: 0 1px 15px 5px rgba(255, 255, 255, 0.9), 0 1px 0 rgba($white, 1.0);
   
@@ -163,11 +162,13 @@
 .modal-wrapper.modal-takeover {
   min-width: 100vw;
   max-width: 100vw;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 90vh;
+  max-height: 90vh;
+  margin-top: 10vh;
   
   & .modal-content {
     flex: 1 1 auto;
+    max-height: calc(100vh - 10vh);
   }
   
   @media screen and (min-width: $large) {
