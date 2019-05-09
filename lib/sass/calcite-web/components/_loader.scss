@@ -14,10 +14,109 @@ $loader-delay: 0.16s;
 @mixin loader() {
   display: none;
   position: relative;
+
   &.is-active {
     display: block;
   }
 }
+
+.loaderwrapper {
+  position: relative;
+  display: block;
+  width: 2em;
+  height: 2em;
+  animation: spin 1s ease infinite;
+  transform: rotate(0deg);
+
+}
+
+@mixin frame-pseudo-base() {
+  display: block;
+  content: '';
+  z-index: 99;
+  background-color: white;
+  position: absolute;
+}
+
+.frame1, .frame2 {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+}
+.frame1 {
+  box-shadow: inset 0 0 0 3px blue;
+  animation: frameshift 1s ease-in-out infinite;
+  &:after {
+    height: 3px;
+    width: 8px;
+    left: 8px;
+    top: 0px;
+    @include frame-pseudo-base();
+    animation: colorshift 1s ease-in-out infinite;
+  }
+  &:before {
+    height: 8px;
+    width: 3px;
+    left: 0px;
+    top: 8px;
+    @include frame-pseudo-base();
+    animation: colorshift2 1s ease-in-out infinite;
+  }
+}
+
+.frame2 {
+  &:after {
+    height: 3px;
+    width: 8px;
+    top: calc(100% - 3px);
+    right: 8px;
+    @include frame-pseudo-base();
+    animation: colorshift3 1s ease-in-out infinite;
+  }
+  &:before {
+    height: 8px;
+    width: 3px;
+    right: 0px;
+    top: calc(100% - 18px);
+    @include frame-pseudo-base();
+    animation: colorshift4 1s ease-in-out infinite;
+  }
+}
+
+@keyframes colorshift {
+  50% { left:8px; }
+  100% { left:100%; }
+}
+
+@keyframes colorshift2 {
+  50% { top:8px; }
+  100% { top:0%; }
+}
+
+@keyframes colorshift3 {
+  50% { right: 8px; }
+  100% { right: 100%; }
+}
+
+@keyframes colorshift4 {
+  50% { top: calc(100% - 18px); }
+  100% { top:100%; }
+}
+
+@keyframes spin {
+
+  50%,
+  100% {}
+}
+
+@keyframes frameshift {
+  100% {
+    box-shadow: inset 0 0 0 3px blueviolet;
+  }
+}
+
+
 
 %loader-styles {
   background: $blue;
@@ -43,10 +142,12 @@ $loader-delay: 0.16s;
   font-size: 11px;
   -webkit-animation-delay: $loader-delay;
   animation-delay: $loader-delay;
-  &:before{
+
+  &:before {
     @extend %loader-pseudoelements;
     left: -$loader-spacing;
   }
+
   &:after {
     @extend %loader-pseudoelements;
     left: $loader-spacing;
@@ -60,8 +161,9 @@ $loader-delay: 0.16s;
   padding-top: 4rem;
 }
 
-@if $include-loader == true {
+@if $include-loader==true {
   @-webkit-keyframes load {
+
     0%,
     80%,
     100% {
@@ -69,20 +171,7 @@ $loader-delay: 0.16s;
       box-shadow: 0 0 $blue;
       height: $loader-height;
     }
-    40% {
-      opacity: 1;
-      box-shadow: 0 -1*$loader-zoom $blue;
-      height: $loader-height+$loader-zoom;
-    }
-  }
-  @keyframes load {
-    0%,
-    80%,
-    100% {
-      opacity: .75;
-      box-shadow: 0 0 $blue;
-      height: $loader-height;
-    }
+
     40% {
       opacity: 1;
       box-shadow: 0 -1*$loader-zoom $blue;
@@ -90,7 +179,32 @@ $loader-delay: 0.16s;
     }
   }
 
-  .loader {@include loader();}
-    .loader-bars {@include loader-bars();}
-    .loader-text {@include loader-text();}
+  @keyframes load {
+
+    0%,
+    80%,
+    100% {
+      opacity: .75;
+      box-shadow: 0 0 $blue;
+      height: $loader-height;
+    }
+
+    40% {
+      opacity: 1;
+      box-shadow: 0 -1*$loader-zoom $blue;
+      height: $loader-height+$loader-zoom;
+    }
+  }
+
+  .loader {
+    @include loader();
+  }
+
+  .loader-bars {
+    @include loader-bars();
+  }
+
+  .loader-text {
+    @include loader-text();
+  }
 }
